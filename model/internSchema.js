@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var internSchema = new Schema({
@@ -6,9 +6,9 @@ var internSchema = new Schema({
         type: String,
         required: true
     },
-    id: {
+    Id: {
         type: Number,
-        required: true
+        required: false
     },
     phonenumber: {
         type: Number,
@@ -20,7 +20,7 @@ var internSchema = new Schema({
     },
     citizenshipId: {
         type: Number,
-        required: true
+        required: false
     },
     image:{
         data: Buffer,
