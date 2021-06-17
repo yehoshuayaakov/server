@@ -1,5 +1,5 @@
 var Crypto = require("crypto-js");
-const Bcrypt = require("bcrypt");
+const Bcrypt = require("bcryptjs");
 
 const key = "Aashgdhgafdhgfdjhafsghdfajshdf";
 function crypto(){
