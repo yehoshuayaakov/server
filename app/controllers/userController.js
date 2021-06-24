@@ -70,7 +70,7 @@ function userController(){
             if (err){
                 return res.status(500).send({"message" : "Problem with request"});
             }
-           console.log(list);
+           //console.log(list);
             return res.status(200).send(list);
         })
 
