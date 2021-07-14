@@ -6,10 +6,10 @@ var internSchema = new Schema({
         type: String,
         required: true
     },
-    Id: {
-        type: String,
+    id: {
+        type: Number,
         required: false,
-        unique : true
+        unique : false
     },
     phonenumber: {
         type: Number,
@@ -46,7 +46,23 @@ var internSchema = new Schema({
     department: { type: String },
     residency: { type: String },
     yearsOfResidency: { type: Number }
-    }
+    },
+    tests : [{
+        name: {type : String},
+        id: {
+            type : Number,
+           
+           
+        },
+      
+        dateAdded: {
+            type: String,
+            default : new Date().toUTCString()
+        },
+        grade: {
+            type: Number
+        }
+    }]
 });
 
 module.exports = mongoose.model("intern", internSchema);

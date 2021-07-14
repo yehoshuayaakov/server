@@ -24,7 +24,7 @@ loginRoutes.post("/register", function(req, res){
 loginRoutes.post("/login", function(req, res){
     
     InternModel.findOne({email: req.body.email},
-        { name: 1, Id: 1, phonenumber: 1, roleNumber: 1, password: 1, email: 1, professionalDetails: 1}, function (err, doc){
+        { name: 1, id: 1, phonenumber: 1, roleNumber: 1, password: 1, email: 1, professionalDetails: 1}, function (err, doc){
             //console.log(doc.password);
             console.log(req.body);
             console.log(doc);
@@ -43,10 +43,11 @@ loginRoutes.post("/login", function(req, res){
                return res.status(401).send({msg: "invalid entry"});
 
            }
-
-            var token = new Token(true,null, doc.name, doc.Id, doc.phonenumber);
+            console.log(doc);
+            console.log(doc.id);
+            var token = new Token(true,null, doc.name, doc.id, doc.phonenumber);
             console.log( "the token is " + token.token);
-            res.status(200).send({token: token.token, name: doc.name, roleNumber: doc.roleNumber, professionalDetails: doc.professionalDetails});
+            res.status(200).send({token: token.token, name: doc.name, roleNumber: doc.roleNumber, professionalDetails: doc.professionalDetails, id : doc.id});
         })  
     
 
