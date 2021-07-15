@@ -145,7 +145,7 @@ function userController(){
 
     }
     function deleteTest(req, res){
-        Test.deleteOne({id: req.params.Id}, function(err, result) {
+        Test.deleteOne({id: req.params._id}, function(err, result) {
             if(err){
                 return res.status(500).send();
             }

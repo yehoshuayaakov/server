@@ -24,19 +24,19 @@ res.send("this actually worked")
 //app.use(express.urlencoded({extended: false}))
 app.use(require("cors")())
 app.use(express.json());
-//app.use("/api",function(req,res,next){
- // var token = new userToken(false, req.headers['x-access-token']);
-/*if (token.isNotExpired()){
+app.use("/api",function(req,res,next){
+ var token = new userToken(false, req.headers['x-access-token']);
+if (token.isNotExpired()){
   req.user = token;
  return next();
-}*/
-//console.log("expired(middleware)");
-//res.status(401).send();
-//})
+}
+console.log("expired(middleware)");
+res.status(401).send();
+})
 var internRoutes = require('./routes/internRoutes.js');
 var testRoutes = require('./routes/testRoutes.js')
 app.use("/api/interns", internRoutes);
-app.use("/tests", testRoutes);
+app.use("/api/tests", testRoutes);
 app.use("/createUser", internRoutes);
 var loginRoutes = require('./routes/loginRoutes.js');
 app.use("/auth", loginRoutes);

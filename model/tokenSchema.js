@@ -1,6 +1,6 @@
 const Encrypt = require ("../utils/encrypt.js")
 var split = "*~*";
-var time = 1000 * 60 * 60;
+var time = 1000 * 60 * 60*6;
 function Token (isNew, token, name, Id,  phonenumber){
     if (isNew){
         this.name = name;
