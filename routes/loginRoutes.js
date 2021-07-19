@@ -36,6 +36,7 @@ loginRoutes.post("/login", function(req, res){
                 return res.status(401).send({msg: "id does not exist"});
             }
             if (!Crypto.compare(req.body.password, doc.password)){
+                console.log("bad password");
                 return res.status(401).send({msg: "Id is incorrect"});
             }
            if (req.body.email !== doc.email){
